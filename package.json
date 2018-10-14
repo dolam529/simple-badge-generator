@@ -1,0 +1,27 @@
+{
+  "name": "simple-badge-generator",
+  "version": "0.0.1",
+  "description": "A Simple Metadata Badges Generator",
+  "main": "init.js",
+  "dependencies": {
+    "http": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/belivipro9x99/simple-badge-generator.git"
+  },
+  "keywords": [
+    "badges",
+    "javascript"
+  ],
+  "author": "Belikhun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/belivipro9x99/simple-badge-generator/issues"
+  },
+  "homepage": "https://github.com/belivipro9x99/simple-badge-generator#readme"
+}
