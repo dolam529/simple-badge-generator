@@ -1,14 +1,15 @@
 const http = require("http");
+const pixelWidth = require("string-pixel-width");
 
 const hostname = "127.0.0.1";
 const port = 3000;
 
-//TODO: clean this 💩
 /**
  * Parse url
  * @param {*string} url 
  */
 function parseurl(url) {
+	url = decodeURI(url);
 	var path = url.split("/");
 	var last = path[path.length - 1].split("?");
 	var name = last[0];
@@ -34,11 +35,9 @@ function parseurl(url) {
 	};
 }
 
-//TODO: clean this 💩
 /**
- * Return a svg HTML string
- * TODO: clean this 💩
- * @param {*array} data 
+ * Return a svg data string
+ * @param {*array} data
  */
 function createbadge ({
 	color = "green",
@@ -56,10 +55,10 @@ function createbadge ({
 		"yellowgreen": "#a4a61d",
 		"lightgrey": "#9f9f9f"
 	}
-	const boxpadding = 8;
+	const boxpadding = 24;
 	var ccode = (clist[color] ? clist[color] : "#000");
-	var sulen = subject.length * 7;
-	var stlen = status.length * 7;
+	var sulen = pixelWidth(subject, { size: 11 });
+	var stlen = pixelWidth(status, { size: 11 });
 	var box1 = sulen + boxpadding;
 	var box2 = stlen + boxpadding;
 	var suanchor = (box1/2)*10;
@@ -83,7 +82,6 @@ function createbadge ({
 	].join("\n");
 }
 
-//TODO: clean this 💩, too
 const server = http.createServer((req, res) => {
 	var url = parseurl(req.url);
 	res.statusCode = 200;
